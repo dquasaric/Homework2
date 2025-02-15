@@ -1,68 +1,56 @@
-# Questions & Answers System
+# Q&A System
 
 ## Overview
-This project is a **Questions & Answers System**, allowing users to post questions, provide answers, and mark the best answers as accepted. The system is implemented using **Java** and an **SQLite database** for data persistence.
+This project is a Java-based Q&A system that allows users to manage questions and answers using a JavaFX user interface and SQLite database.
 
 ## Features
-- Users can **ask** and **view** questions.
-- Users can **answer** existing questions.
-- Users can **search** for similar questions.
-- Users can **view** all unresolved or resolved questions.
-- Users can **mark answers as accepted**.
-- The system is operated through a **console-based UI**.
+- Add, update, and delete questions
+- Add, remove, and accept answers
+- Search for questions
+- View resolved and unresolved questions
+- Store data in an SQLite database
 
-## Technologies Used
-- **Java** (Core application logic)
-- **SQLite** (Database management)
-- **JUnit** (Testing framework)
+## Project Structure
+```
+application/
+  Answer.java            - Represents an answer with ID, text, and accepted status
+  Answers.java           - Manages a collection of answers
+  Question.java          - Represents a question with ID, text, and answer list
+  Questions.java         - Manages a collection of questions
+  JavaFXUI.java          - Provides the graphical user interface using JavaFX
 
-## File Structure
-### **Application Logic**
-- `Question.java` - Represents a question.
-- `Answer.java` - Represents an answer.
-- `Questions.java` - Manages a collection of questions.
-- `Answers.java` - Manages a collection of answers.
+database/
+  DatabaseHelper.java    - Handles database interactions using SQLite
 
-### **Database Management**
-- `DatabaseHelper.java` - Handles SQLite database connections and schema creation.
-- `QuestionDAO.java` - Manages database operations related to questions.
-- `AnswerDAO.java` - Manages database operations related to answers.
-- `ReviewerDAO.java` - Handles reviewer-related operations.
+tests/
+  QuestionAnswerTests.java - JUnit test cases for the system
+```
 
-### **Console UI**
-- `ConsoleUI.java` - Provides an interactive command-line interface for users.
+## Dependencies
+- JavaFX
+- SQLite JDBC Driver
+- JUnit 5 (for testing)
 
-### **Testing**
-- `QuestionAnswerTests.java` - Unit tests for verifying database and application functionality.
+## Setup Instructions
+1. Ensure you have Java installed (JDK 11+ recommended).
+2. Add JavaFX libraries to your project.
+3. Ensure the SQLite JDBC driver is included.
+4. Run `DatabaseHelper.main()` to initialize the database tables.
+5. Run `JavaFXUI.main()` to launch the application.
 
-## Setup & Usage
-### Prerequisites
-- **Java 8+** installed.
-- SQLite JDBC Driver included in the classpath.
+## Usage
+- Enter a question and click 'Add Question'.
+- Enter an answer with the respective question ID and click 'Add Answer'.
+- Click 'Accept Answer' to mark an answer as accepted.
+- Use search to find questions.
+- View all, resolved, or unresolved questions.
 
-### Running the Program via Terminal
-1. **Compile the Java files:**
-   ```sh
-   javac -d bin $(find . -name "*.java")
-   ```
-2. **Run the console application:**
-   ```sh
-   java -cp bin application.ConsoleUI
-   ```
+## Testing
+Run `QuestionAnswerTests.java` using JUnit 5 to validate functionality.
 
-### Running the Program via Eclipse
-1. **Open Eclipse** and create a **new Java project**.
-2. **Import** all `.java` files into the `src` folder.
-3. **Add SQLite JDBC Driver** to the project's classpath:
-   - Right-click on the project -> Build Path -> Add External JARs.
-   - Select the SQLite JDBC driver file (`sqlite-jdbc.jar`).
-4. **Run `ConsoleUI.java`**:
-   - Right-click on `ConsoleUI.java` -> Run As -> Java Application.
+## Contributors
+- **Dara Gafoor - dgafoor@asu.edu**
 
-### Running Tests
-1. **Compile and run the test suite:**
-   ```sh
-   javac -cp .:junit-5.7.0.jar tests/QuestionAnswerTests.java
-   java -cp .:junit-5.7.0.jar org.junit.runner.JUnitCore tests.QuestionAnswerTests
-   ```
+## License
+This project is open-source under the MIT License.
 
