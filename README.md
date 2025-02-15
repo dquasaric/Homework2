@@ -26,7 +26,7 @@ tests/
   QuestionAnswerTests.java - JUnit test cases for the system
 ```
 
-## Dependencies
+## Project requirements
 - JavaFX
 - SQLite JDBC Driver
 - JUnit 5 (for testing)
@@ -50,7 +50,3 @@ Run `QuestionAnswerTests.java` using JUnit 5 to validate functionality.
 
 ## Contributors
 - **Dara Gafoor - dgafoor@asu.edu**
-
-## License
-This project is open-source under the MIT License.
-
